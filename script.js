@@ -1,30 +1,47 @@
-/* EDIT THESE PLACEHOLDERS BEFORE PUBLISHING */
+/** EDIT ONLY THE VALUES BELOW. Leave blank if you do not yet have the link. */
 const profile = {
-  email: 'your.email@example.com',
-  github: 'https://github.com/YOUR_USERNAME',
-  linkedin: 'https://www.linkedin.com/in/YOUR_PROFILE/',
-  pawmatch: 'https://github.com/YOUR_USERNAME/YOUR_PAWMATCH_REPO',
-  bantay: 'https://github.com/YOUR_USERNAME/YOUR_BANTAY_REPO'
+  email: 'josemanalo0206@gmail.com',
+  github: 'https://github.com/Joseee-rm',
+  linkedin: 'https://www.linkedin.com/in/jose-manalo-cdsa-a78310340',
+  pawmatch: '',
+  bantay: ''
 };
-function setLinks(selector, url) {
-  document.querySelectorAll(selector).forEach(a => {
-    a.href = url;
-    if (url.includes('YOUR_')) { a.addEventListener('click', ev => { ev.preventDefault(); alert('Update this link in script.js before publishing.'); }); }
+
+function connect(selector, url, fallback = '') {
+  document.querySelectorAll(selector).forEach((link) => {
+    if (url && /^https:\/\//.test(url)) {
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    } else if (url && url.startsWith('mailto:')) {
+      link.href = url;
+    } else {
+      // Avoid broken placeholder links when you haven't supplied your details yet.
+      const note = document.createElement('span');
+      note.className = 'unavailable-link';
+      note.textContent = fallback;
+      note.setAttribute('aria-label', fallback);
+      link.replaceWith(note);
+    }
   });
 }
-setLinks('[data-github]', profile.github);
-setLinks('[data-linkedin]', profile.linkedin);
-setLinks('[data-pawmatch]', profile.pawmatch);
-setLinks('[data-bantay]', profile.bantay);
-setLinks('[data-email]', 'mailto:' + profile.email);
-document.getElementById('year').textContent = new Date().getFullYear();
+connect('[data-github]', profile.github, 'GitHub link coming soon');
+connect('[data-linkedin]', profile.linkedin, 'LinkedIn link coming soon');
+connect('[data-pawmatch]', profile.pawmatch, 'Repository coming soon');
+connect('[data-bantay]', profile.bantay, 'Project details coming soon');
+connect('[data-email]', profile.email ? 'mailto:' + profile.email : '', 'Email available on request');
+
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();
 const menu = document.querySelector('.menu-toggle');
-const navLinks = document.getElementById('nav-links');
-menu.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  menu.setAttribute('aria-expanded', String(open));
-});
-navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  menu.setAttribute('aria-expanded', 'false');
-}));
+const links = document.getElementById('nav-links');
+if (menu && links) {
+  menu.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    links.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+  }));
+}

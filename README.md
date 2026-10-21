@@ -1,28 +1,36 @@
-# Jose R. Manalo — Personal Portfolio
+# Jose R. Manalo — Portfolio Website
 
-A responsive portfolio built with HTML, CSS, and JavaScript. Ready for GitHub Pages.
+This is a fully functioning responsive static portfolio: **no npm, database, server, build command or paid domain required.**
 
-## Before publishing
+## Preview locally
 
-1. Edit `script.js`: replace `YOUR_USERNAME`, `YOUR_PROFILE`, `YOUR_PAWMATCH_REPO`, `YOUR_BANTAY_REPO`, and `your.email@example.com` with your real links.
-2. Verify all project descriptions in `index.html`, especially BANTAY (placeholder description).
-3. Put your resume at `assets/resume.pdf` (the file is not included because your resume was not provided). Remove the resume buttons until the PDF is added if desired.
-4. Review your skill list; remove technologies you do not want to claim.
-5. Open `index.html` in a browser to preview the website.
+Double-click `index.html` to open the site in Chrome. The Resume buttons open your actual PDF at `assets/Jose_R_Manalo_Resume.pdf` in a new tab.
 
-## Publish with GitHub Pages
+## Personalize before sharing
 
-1. Create a **public** repository on GitHub named `YOUR_USERNAME.github.io` (replace with your actual username).
-2. Upload **the contents of this folder** to the repository root (not the containing folder).
-3. Commit to `main`.
-4. In **Settings > Pages**, select **Deploy from a branch**, `main`, and `/(root)`, then click **Save**.
-5. When published, visit `https://YOUR_USERNAME.github.io/`.
+1. Your email, GitHub, and LinkedIn from your uploaded resume are already connected in `script.js`. Add PawMatch and BANTAY repository URLs when available; blank links appear as unavailable labels.
+2. Open `index.html` to update your introduction, skills, and project descriptions. BANTAY is intentionally described conservatively until verified.
+3. To update the resume later, replace `assets/Jose_R_Manalo_Resume.pdf` with your new PDF using the same filename.
+4. Replace project artwork if you want by editing `index.html` and `styles.css`. The existing design works without external images.
+5. For a custom domain, only configure it after you own the domain; otherwise leave **Custom domain** blank in GitHub Pages.
 
-GitHub Docs: https://docs.github.com/en/pages/quickstart
+## Publish on GitHub Pages (FREE)
 
-## Structure
+1. Sign in to GitHub and create a **public** repository named `YOUR_GITHUB_USERNAME.github.io`. Make sure the exact GitHub username matches your account.
+2. Click **Add file → Upload files** and upload the **contents** of this folder: `index.html`, `styles.css`, `script.js`, `README.md`, and the `assets` folder.
+3. Commit the files to the `main` branch.
+4. Go to **Settings → Pages**. Under *Build and deployment*, set Source to **Deploy from a branch**, Branch to **main**, Folder to **/(root)** and Save.
+5. Open `https://YOUR_GITHUB_USERNAME.github.io/` after GitHub finishes publishing. DNS configuration is not required.
 
-- `index.html` — page content
-- `styles.css` — responsive design
-- `script.js` — contact and project links / mobile menu
-- `assets/` — add your resume PDF here
+For a different repository name, your URL is normally `https://YOUR_GITHUB_USERNAME.github.io/REPOSITORY_NAME/`.
+
+## Files
+
+- `index.html` — main page
+- `styles.css` — desktop and mobile styles
+- `script.js` — links, menu, current year
+- `assets/Jose_R_Manalo_Resume.pdf` — original one-page resume PDF (embedded unchanged)
+- `assets/favicon.svg` — website tab icon
+- `README.md` — instructions
+
+No external JavaScript libraries. Google Fonts are optional: the site still works with the fallback system fonts when offline.
